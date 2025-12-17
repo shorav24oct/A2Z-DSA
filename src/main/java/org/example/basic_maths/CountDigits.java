@@ -5,7 +5,7 @@ public class CountDigits {
         System.out.println(countDigitUsingLog(1234567891));
     }
 
-    private static int countDigit(int no) {
+    static int countDigit(int no) {
         int count = 0;
         while (no > 0) {
             no = no / 10;
