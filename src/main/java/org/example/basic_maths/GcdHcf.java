@@ -5,6 +5,9 @@ public class GcdHcf {
         System.out.println(printGcdOrHcf(11, 13));
     }
 
+    /*
+    Time Complexity: Big-O(min(n1,n2))
+     */
     private static int printGcdOrHcf(int n1, int n2) {
         int gcd = 0;
         for (int i = Math.min(n1, n2); i >= 1; i--) {
