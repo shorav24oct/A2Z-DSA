@@ -4,10 +4,26 @@ import java.util.Arrays;
 
 public class Sorting {
     public static void main(String[] args) {
-        int[] arr = {13, 12, 25, 9, 24};
-        //selectionSort(arr, arr.length);
-        bubbleSort(arr, arr.length);
+        int[] arr = {1, 2, 3, 4, 5};
+        // selectionSort(arr, arr.length);
+        // bubbleSort(arr, arr.length);
+        insertionSort(arr, arr.length);
         System.out.println(Arrays.toString(arr));
+    }
+
+    /*
+    Time Complexity:
+    Big-O(n*n) Worst Case
+    Big-O(n) Best Case
+     */
+    private static void insertionSort(int[] arr, int n) {
+        for (int i = 0; i <= n - 1; i++) {
+            int j = i;
+            while (j > 0 && arr[j - 1] > arr[j]) {
+             swap(arr, j -1, j);
+             j--;
+            }
+        }
     }
 
     /*
