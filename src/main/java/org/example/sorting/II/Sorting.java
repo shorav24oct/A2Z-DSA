@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Sorting {
     public static void main(String[] args) {
-        int[] arr = {3, 2, 4};
+        int[] arr = {5, 4, 3, 2, 1};
         mergeSort(arr, 0, arr.length - 1);
         for (int num : arr)
             System.out.print(num + " ");
@@ -42,11 +42,9 @@ public class Sorting {
         // Merge both sorted parts
         while (left <= mid && right <= high) {
             if (arr[left] <= arr[right]) {
-                temp.add(arr[left]);
-                left++;
+                temp.add(arr[left++]);
             } else {
-                temp.add(arr[right]);
-                right++;
+                temp.add(arr[right++]);
             }
         }
 
