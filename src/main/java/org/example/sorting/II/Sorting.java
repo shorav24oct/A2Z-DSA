@@ -16,6 +16,7 @@ public class Sorting {
     /*
     Time Complexity = n × log n
                 = O(n log n)
+    Space Complexity = O(n)
      */
     private static void mergeSort(int[] arr, int low, int high) {
         // base case
