@@ -13,6 +13,10 @@ public class Sorting {
     }
 
     // Recursive merge sort
+    /*
+    Time Complexity = n × log n
+                = O(n log n)
+     */
     private static void mergeSort(int[] arr, int low, int high) {
         // base case
         if (low >= high)
@@ -58,6 +62,6 @@ public class Sorting {
 
         // Copy back to original array
         for (int i = low; i <= high; i++)
-            arr[i] = temp.get(i - low);
+            arr[i] = temp.get(i - low); // 👉 temp always starts at index 0, but arr might start at index low. So we subtract low to align the indices.
     }
 }
