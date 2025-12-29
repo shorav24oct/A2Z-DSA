@@ -2,7 +2,7 @@ package org.example.sorting.II;
 
 public class QuickSort {
     public static void main(String[] args) {
-        int[] arr = {3, 2, 1};
+        int[] arr = {5, 4, 3, 2, 1};
         quickSort(arr, 0, arr.length - 1);
         for (int num : arr)
             System.out.print(num + " ");
@@ -42,7 +42,8 @@ public class QuickSort {
             while (arr[j] > pivot && j >= low + 1) {
                 j--;
             }
-            swap(arr, i, j);
+            if (i < j)
+                swap(arr, i, j);
         }
         swap(arr, low, j);
         return j;
