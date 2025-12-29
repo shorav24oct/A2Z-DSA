@@ -3,7 +3,7 @@ package org.example.sorting.II;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sorting {
+public class MergeSorting {
     public static void main(String[] args) {
         int[] arr = {5, 4, 3, 2, 1};
         mergeSort(arr, 0, arr.length - 1);
