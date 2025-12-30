@@ -13,14 +13,15 @@ public class FirstLargest {
     /*
     TC: Big-O(n)
      */
-    private static void optimal(int[] arr, int n) {
+    static int optimal(int[] arr, int n) {
         int large = arr[0];
 
         for (int i = 1; i < n; i++) {
             if (arr[i] > large)
                 large = arr[i];
         }
-        System.out.println(large);
+        //System.out.println(large);
+        return large;
     }
 
     /*
