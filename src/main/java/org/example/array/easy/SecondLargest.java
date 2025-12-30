@@ -11,8 +11,16 @@ public class SecondLargest {
         optimal(arr, n);
     }
 
+    /*
+    TC: Big-O(n)
+     */
     private static void optimal(int[] arr, int n) {
+        int large = arr[0];
+        int secondLarge = -1;
 
+        for (int i = 0; i < n; i++) {
+
+        }
     }
 
     /*
