@@ -6,8 +6,8 @@ public class SecondLargest {
     public static void main(String[] args) {
         int[] arr = {1, 3, 2, 4, 5, 5};
         int n = arr.length;
-        //bruteForce(arr, n);
-        better(arr, n);
+        bruteForce(arr, n);
+        //better(arr, n);
         optimal(arr, n);
     }
 
@@ -46,8 +46,10 @@ public class SecondLargest {
         int secondLarge = -1;
 
         for (int i = n - 2; i >= 0; i--) {
-            if (arr[i] > secondLarge && arr[i] != large)
+            if (arr[i] > secondLarge && arr[i] != large) {
                 secondLarge = arr[i];
+                break;
+            }
         }
         System.out.println(secondLarge);
     }
