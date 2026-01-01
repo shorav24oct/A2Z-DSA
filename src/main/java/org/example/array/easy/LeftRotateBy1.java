@@ -9,6 +9,10 @@ public class LeftRotateBy1 {
         rotateBy1(arr, n);
     }
 
+    /*
+    TC: Big-O(N)
+    SC: Big-O(1)
+     */
     private static void rotateBy1(int[] arr, int n) {
         int temp = arr[0];
 
