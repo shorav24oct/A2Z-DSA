@@ -14,6 +14,11 @@ public class Intersection {
         intersect(a, b, n1, n2);
     }
 
+    /*
+    Brute Force
+    TC: Big-O(n1 * n2)
+    SC: Big-O(n2)
+     */
     private static void intersect(int[] a, int[] b, int n1, int n2) {
 
         int[] visited = new int[n2];
