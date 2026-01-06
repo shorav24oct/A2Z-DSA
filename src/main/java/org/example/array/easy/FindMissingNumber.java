@@ -2,12 +2,32 @@ package org.example.array.easy;
 
 public class FindMissingNumber {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4};
+        int[] arr = {1, 2, 4, 5};
         int N = 5;
 
         //System.out.println(missingNo(arr, N));
         //System.out.println(missing(arr, N));
-        System.out.println(missingOptimal1(arr, N));
+        //System.out.println(missingOptimal1(arr, N));
+        System.out.println(missingOptimal2(arr, N));
+    }
+
+    /*
+    Optimal 1 using XOR approach
+    TC: Big-O(N)
+    SC: Big-O(1)
+     */
+    private static int missingOptimal2(int[] arr, int n) {
+        int xor1 = 0, xor2 = 0;
+
+        for (int i = 1; i <= n; i++) {
+            xor1 = xor1 ^ +i;
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            xor2 = xor2 ^ +arr[i];
+        }
+
+        return xor1 ^ xor2;
     }
 
     /*
