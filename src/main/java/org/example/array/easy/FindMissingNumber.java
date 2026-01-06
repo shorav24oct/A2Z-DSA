@@ -2,11 +2,28 @@ package org.example.array.easy;
 
 public class FindMissingNumber {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 4, 5};
+        int[] arr = {1, 2, 3, 4};
         int N = 5;
 
         //System.out.println(missingNo(arr, N));
-        System.out.println(missing(arr, N));
+        //System.out.println(missing(arr, N));
+        System.out.println(missingOptimal1(arr, N));
+    }
+
+    /*
+    Optimal 1 using Sum approach
+    TC: Big-O(N)
+    SC: Big-O(1)
+     */
+    private static int missingOptimal1(int[] arr, int n) {
+        int sum = n * (n + 1) / 2;
+
+        int s1 = 0;
+        for (int i = 0; i < arr.length; i++) {
+            s1 += arr[i];
+        }
+
+        return sum - s1;
     }
 
     /*
