@@ -1,9 +1,9 @@
 package org.example.array.medium;
 
-public class LongestSubArrayPositive {
+public class LongestSubArrayPositiveNegative {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 1, 1, 1, 1, 4, 2, 3};
-        int k = 3;
+        int[] arr = {-1, 1, 1};
+        int k = 1;
         System.out.println(brute(arr, arr.length, k));
     }
 
