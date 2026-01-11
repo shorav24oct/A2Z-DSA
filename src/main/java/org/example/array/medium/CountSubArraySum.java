@@ -1,5 +1,7 @@
 package org.example.array.medium;
 
+import java.util.HashMap;
+
 /*
 Problem Statement: Given an array of integers and an integer k, return the total number of sub-arrays whose sum equals k.
 A sub-array is a contiguous non-empty sequence of elements within an array.
@@ -9,43 +11,48 @@ Explanation: The sub-arrays that sum up to 6 are [3, 1, 2] and [2, 4].
  */
 public class CountSubArraySum {
     public static void main(String[] args) {
-        int arr[] = {3, 1, 2, 4, 2};
-        int k = 6;
+        int arr[] = {-1, 1, 1};
+        int k = 1;
         //System.out.println(bruteForce(arr, arr.length, k));
-        //System.out.println(optimal(arr, arr.length, k));
-        System.out.println(better(arr, arr.length, k));
+        System.out.println(optimal(arr, arr.length, k));
+        //System.out.println(better(arr, arr.length, k));
     }
 
     /*
-    Optimal Using 2 pointer and sliding window technique
+    Optimal Using prefix sum & Hashing
     TC: Big-O(n)
     SC: Big-O(1)
      */
     private static int optimal(int[] arr, int n, int k) {
-        int left = 0, right = 0;
-        int maxL = 0;
-        int sum = arr[0];
+        // Map to store frequency of prefix sums
+        HashMap<Integer, Integer> prefixSumCount = new HashMap<>();
+
+        // Initialize prefix sum and count of subarrays
+        int prefixSum = 0;
         int count = 0;
 
-        while (right < n) {
-            // expand window if sum < k
-            right++;
-            if (right < n) {
-                sum += arr[right];
+        // Base case: prefix sum 0 has occurred once
+        prefixSumCount.put(0, 1);
+
+        // Traverse through the array
+        for (int i = 0; i < n; i++) {
+            // Add current element to prefix sum
+            prefixSum += arr[i];
+
+            // Calculate the prefix sum that needs to be removed
+            int remove = prefixSum - k;
+
+            // If this prefix sum has been seen before,
+            // add its count to the result
+            if (prefixSumCount.containsKey(remove)) {
+                count += prefixSumCount.get(remove);
             }
 
-            // shrink window if sum > k
-            while (left <= right && sum > k) {
-                sum -= arr[left];
-                left++;
-            }
-
-            // update max length if sum = k
-            if (sum == k) {
-                maxL = Math.max(maxL, right - left + 1);
-                count++;
-            }
+            // Update the frequency of the current prefix sum
+            prefixSumCount.put(prefixSum, prefixSumCount.getOrDefault(prefixSum, 0) + 1);
         }
+
+        // Return the total count of subarrays
         return count;
     }
 
