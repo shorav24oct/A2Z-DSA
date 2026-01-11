@@ -11,8 +11,9 @@ public class CountSubArraySum {
     public static void main(String[] args) {
         int arr[] = {3, 1, 2, 4, 2};
         int k = 6;
-        System.out.println(bruteForce(arr, arr.length, k));
+        //System.out.println(bruteForce(arr, arr.length, k));
         //System.out.println(optimal(arr, arr.length, k));
+        System.out.println(better(arr, arr.length, k));
     }
 
     /*
@@ -48,11 +49,40 @@ public class CountSubArraySum {
         return count;
     }
 
+    /*
+    Brute Force
+    TC: Big-0(n*n*n)
+    SC: Big-O(1)
+     */
     private static int bruteForce(int[] arr, int n, int k) {
         int count = 0;
 
+        for (int si = 0; si < n; si++) {
+            for (int ei = si; ei < n; ei++) {
+                int sum = 0;
+                for (int i = si; i <= ei; i++) {
+                    sum += arr[i];
+                }
+                if (sum == k) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    /*
+    Better
+    TC: Big-0(n*n)
+    SC: Big-O(1)
+     */
+    private static int better(int[] arr, int n, int k) {
+        int count = 0;
+
         for (int i = 0; i < n; i++) {
+
             int sum = 0;
+
             for (int j = i; j < n; j++) {
                 sum += arr[j];
 
