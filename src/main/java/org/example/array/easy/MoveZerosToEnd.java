@@ -7,8 +7,8 @@ public class MoveZerosToEnd {
         int[] arr = {1, 0, 2, 3, 0};
         int n = arr.length;
         System.out.println(Arrays.toString(arr));
-        //moveZeros(arr, n);
-        moveZerosOptimal(arr, n);
+        moveZeros(arr, n);
+        //moveZerosOptimal(arr, n);
     }
 
     /*
@@ -45,11 +45,10 @@ public class MoveZerosToEnd {
 
     /*
     Brute Force
-    TC: Big-O(2N)
+    TC: Big-O(N)
     SC: Big-O(N)
      */
     private static void moveZeros(int[] arr, int n) {
-
         // create temp array
         int[] temp = new int[n];
 
@@ -63,7 +62,6 @@ public class MoveZerosToEnd {
                 index++;
             }
         }
-
         System.out.println(Arrays.toString(temp));
     }
 }
