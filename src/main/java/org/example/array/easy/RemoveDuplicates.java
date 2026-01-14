@@ -38,7 +38,7 @@ public class RemoveDuplicates {
 
         int index = 0;
 
-        for (Integer i : set) {
+        for (int i : set) {
             arr[index] = i;
             index++;
         }

@@ -25,7 +25,7 @@ public class CountSubArraySum {
      */
     private static int optimal(int[] arr, int n, int k) {
         // Map to store frequency of prefix sums
-        HashMap<Integer, Integer> prefixSumCount = new HashMap<>();
+        HashMap<Integer, Integer> prefixSumCount = new HashMap<>(); // (key, value) -> (prefixSum , count)
 
         // Initialize prefix sum and count of subarrays
         int prefixSum = 0;

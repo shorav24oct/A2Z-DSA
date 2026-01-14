@@ -9,8 +9,8 @@ public class LeftRotateByD {
         int d = 3;
 
         System.out.println(Arrays.toString(arr));
-        //rotateByDBruteForce(arr, n, d);
-        rotateByDOptimal(arr, n, d);
+        rotateByDBruteForce(arr, n, d);
+        //rotateByDOptimal(arr, n, d);
     }
 
     /*
@@ -62,7 +62,7 @@ public class LeftRotateByD {
         // Copy stored elements to the end
         // Big-O(d)
         for (int i = n - d; i < n; i++) {
-            arr[i] = temp[i - (n - d)];
+            arr[i] = temp[i - d];
         }
 
         System.out.println(Arrays.toString(arr));
