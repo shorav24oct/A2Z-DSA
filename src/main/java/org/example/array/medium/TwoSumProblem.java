@@ -1,5 +1,8 @@
 package org.example.array.medium;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /*
 Problem Statement: Given an array of integers arr[] and an integer target.
 1st variant: Return YES if there exist two numbers such that their sum is equal to the target. Otherwise, return NO.
@@ -11,10 +14,32 @@ Explanation: arr[1] + arr[3] = 14. So, the answer is “YES” for first variant
  */
 public class TwoSumProblem {
     public static void main(String[] args) {
-        int[] a = {2, 6, 5, 8, 11};
+        int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         int N = a.length;
-        int target = 14;
-        System.out.println(isTwoNumExist(a, N, target));
+        int target = 10;
+        //System.out.println(isTwoNumExist(a, N, target));
+        printIndices(a, N, target);
+    }
+
+    /*
+    Better Approach: Use Hashing Concept
+    TC: Big-O(n log n)
+    SC: Big-O(n) due to hashing
+     */
+    private static void printIndices(int[] a, int n, int target) {
+        Map<Integer, Integer> map = new HashMap<>(); // (key, value) -> (element, indices)
+
+        for (int i = 0; i < n; i++) {
+            int complement = target - a[i];
+
+            // Check if complement exists in map
+            if (map.containsKey(complement)) {
+                System.out.println("(" + map.get(complement) + " , " + i + ")");
+            }
+            // Store current element and its index
+            map.put(a[i], i);
+        }
+
     }
 
     /*
