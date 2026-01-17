@@ -13,7 +13,7 @@ public class TwoSumProblem {
     public static void main(String[] args) {
         int[] a = {2, 6, 5, 8, 11};
         int N = a.length;
-        int target = 15;
+        int target = 14;
         System.out.println(isTwoNumExist(a, N, target));
     }
 
@@ -24,9 +24,7 @@ public class TwoSumProblem {
      */
     private static String isTwoNumExist(int[] a, int n, int target) {
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (i == j)
-                    continue;
+            for (int j = i + 1; j < n; j++) {
                 if (a[i] + a[j] == target)
                     return "YES";
             }
