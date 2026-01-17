@@ -18,7 +18,31 @@ public class TwoSumProblem {
         int N = a.length;
         int target = 10;
         //System.out.println(isTwoNumExist(a, N, target));
-        printIndices(a, N, target);
+        //printIndices(a, N, target);
+        printIndicesOptimal(a, N, target);
+    }
+
+    /*
+    Optimal Approach use 2 pointer approach
+    TC: Big-O(n)
+    SC: Big-O(1)
+     */
+    private static void printIndicesOptimal(int[] a, int n, int target) {
+        int left = 0;
+        int right = n - 1;
+
+        while (left < right) {
+            int sum = a[left] + a[right];
+            if (target == sum) {
+                System.out.println("(" + left + " , " + right + ")");
+                left++;
+                right--;
+            } else if (sum > target) {
+                right--;
+            } else {
+                left++;
+            }
+        }
     }
 
     /*
