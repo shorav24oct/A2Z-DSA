@@ -12,9 +12,39 @@ Explanation: The nums array in sorted order has 2 zeroes, 2 ones and 1 two
  */
 public class SortArrayOf0s1s2s {
     public static void main(String[] args) {
-        int[] nums = {1, 0, 2, 1, 0};
+        int[] nums = {0, 1, 2, 0, 1, 2, 0, 1};
         System.out.println("Array Before Sort -> " + Arrays.toString(nums));
-        System.out.println("Array After Sort -> " + Arrays.toString(sortArrayOf0s1s(nums)));
+        //System.out.println("Array After Sort -> " + Arrays.toString(sortArrayOf0s1s(nums)));
+        System.out.println("Array After Sort -> " + Arrays.toString(sortArrayOf0s1s(nums, nums.length)));
+    }
+
+    /*
+    Better Approach
+    TC: Big-O(2n)
+    SC: Big-O(1)
+     */
+    private static int[] sortArrayOf0s1s(int[] nums, int n) {
+        int count0 = 0;
+        int count1 = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == 0)
+                count0++;
+            else if (nums[i] == 1) {
+                count1++;
+            }
+        }
+
+        for (int i = 0; i < count0; i++)
+            nums[i] = 0;
+
+        for (int i = count0; i < count0 + count1; i++)
+            nums[i] = 1;
+
+        for (int i = count0 + count1; i < n; i++)
+            nums[i] = 2;
+
+        return nums;
     }
 
     /*
