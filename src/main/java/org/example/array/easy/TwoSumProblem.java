@@ -1,5 +1,6 @@
 package org.example.array.easy;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,12 +15,12 @@ Explanation: arr[1] + arr[3] = 14. So, the answer is “YES” for first variant
  */
 public class TwoSumProblem {
     public static void main(String[] args) {
-        int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] a = {3, 2, 4};
         int N = a.length;
-        int target = 10;
+        int target = 6;
         //System.out.println(isTwoNumExist(a, N, target));
-        //printIndices(a, N, target);
-        printIndicesOptimal(a, N, target);
+        System.out.println(Arrays.toString(printIndices(a, N, target)));
+        //printIndicesOptimal(a, N, target);
     }
 
     /*
@@ -47,10 +48,10 @@ public class TwoSumProblem {
 
     /*
     Better Approach: Use Hashing Concept
-    TC: Big-O(n log n)
+    TC: Big-O(n)
     SC: Big-O(n) due to hashing
      */
-    private static void printIndices(int[] a, int n, int target) {
+    private static int[] printIndices(int[] a, int n, int target) {
         Map<Integer, Integer> map = new HashMap<>(); // (key, value) -> (element, indices)
 
         for (int i = 0; i < n; i++) {
@@ -58,12 +59,12 @@ public class TwoSumProblem {
 
             // Check if complement exists in map
             if (map.containsKey(complement)) {
-                System.out.println("(" + map.get(complement) + " , " + i + ")");
+                return new int[]{map.get(complement), i};
             }
             // Store current element and its index
             map.put(a[i], i);
         }
-
+        return new int[]{-1, -1};
     }
 
     /*
