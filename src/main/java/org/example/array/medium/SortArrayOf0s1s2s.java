@@ -12,11 +12,51 @@ Explanation: The nums array in sorted order has 2 zeroes, 2 ones and 1 two
  */
 public class SortArrayOf0s1s2s {
     public static void main(String[] args) {
-        int[] nums = {0, 1, 2, 0, 1, 2, 0, 1};
+        int[] nums = {2, 0, 1, 0, 1, 2};
         System.out.println("Array Before Sort -> " + Arrays.toString(nums));
         //System.out.println("Array After Sort -> " + Arrays.toString(sortArrayOf0s1s(nums)));
-        System.out.println("Array After Sort -> " + Arrays.toString(sortArrayOf0s1s(nums, nums.length)));
+        //System.out.println("Array After Sort -> " + Arrays.toString(sortArrayOf0s1s(nums, nums.length)));
+        System.out.println("Array After Sort -> " + Arrays.toString(sortArrayOf0s1s2s(nums, nums.length)));
     }
+
+    /*
+    Optimal Approach using DNF algorithm
+    TC: Big-O(n)
+    SC: Big-O(1)
+     */
+    private static int[] sortArrayOf0s1s2s(int[] a, int n) {
+        int low = 0;
+        int mid = 0;
+        int high = n - 1;
+
+        while (mid <= high) {
+
+            // 1st Case
+            if (a[mid] == 0) {
+                swap(a, low, mid);
+                low++; mid++;
+            }
+
+            // 2nd case
+            else if (a[mid] == 1) {
+                mid++;
+            }
+
+            // 3rd case
+            else {
+                swap(a, mid, high);
+                high--;
+            }
+        }
+        return a;
+    }
+
+    private static void swap(int[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
 
     /*
     Better Approach
