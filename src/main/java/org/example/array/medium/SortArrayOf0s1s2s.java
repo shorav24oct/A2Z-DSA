@@ -33,8 +33,14 @@ public class SortArrayOf0s1s2s {
 
             // 1st Case
             if (a[mid] == 0) {
-                swap(a, low, mid);
-                low++; mid++;
+                //swap(a, low, mid);
+
+                int temp = a[low];
+                a[low] = a[mid];
+                a[mid] = temp;
+
+                low++;
+                mid++;
             }
 
             // 2nd case
@@ -44,7 +50,10 @@ public class SortArrayOf0s1s2s {
 
             // 3rd case
             else {
-                swap(a, mid, high);
+                //swap(a, mid, high);
+                int temp = a[mid];
+                a[mid] = a[high];
+                a[high] = temp;
                 high--;
             }
         }
