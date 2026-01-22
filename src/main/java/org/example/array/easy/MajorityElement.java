@@ -14,7 +14,40 @@ Explanation:
 public class MajorityElement {
     public static void main(String[] args) {
         int[] nums = {7, 0, 0, 1, 7, 7, 2, 7, 7};
-        System.out.println(majorityElementBrute(nums));
+        //System.out.println(majorityElementBrute(nums));
+        System.out.println(majorityElementOptimal(nums));
+    }
+
+    /*
+    TC: Big-O(N)
+    SC: Big-O(1)
+     */
+    private static int majorityElementOptimal(int[] nums) {
+        int count = 0;
+        int el = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (count == 0) {
+                count = 1;
+                el = nums[i];
+            } else if (el == nums[i]) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+
+        int count1 = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (el == nums[i]) {
+                count1++;
+            }
+        }
+
+        if (count1 > nums.length / 2)
+            return el;
+
+        return -1;
     }
 
     /*
