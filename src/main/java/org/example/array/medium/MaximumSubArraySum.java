@@ -11,7 +11,24 @@ which is the maximum sum of any contiguous sub-array.
 public class MaximumSubArraySum {
     public static void main(String[] args) {
         int[] nums = {2, 3, 5, -2, 7, -4};
-        System.out.println(bruteMaxSubArrSum(nums, nums.length));
+        //System.out.println(bruteMaxSubArrSum(nums, nums.length));
+        System.out.println(betterMaxSubArrSum(nums, nums.length));
+    }
+
+    /*
+    TC: Big-O(n * n * n)
+    SC: Big-O(1)
+     */
+    private static int betterMaxSubArrSum(int[] nums, int n) {
+        int maxSum = 0;
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+            for (int j = i; j < n; j++) {
+                sum += nums[j];
+                maxSum = Math.max(maxSum, sum);
+            }
+        }
+        return maxSum;
     }
 
     /*
@@ -23,7 +40,7 @@ public class MaximumSubArraySum {
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
                 int sum = 0;
-                for ( int k = i; k <=j; k++ ) {
+                for (int k = i; k <= j; k++) {
                     sum = sum + nums[k];
                 }
                 maxSum = Math.max(maxSum, sum);
