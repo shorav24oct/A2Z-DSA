@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Intersection {
     public static void main(String[] args) {
-        int[] a = {1, 1, 2, 3, 4};
-        int[] b = {1, 2, 5};
+        int[] a = {1, 2, 2, 3, 4};
+        int[] b = {2, 2, 5};
 
         int n1 = a.length;
         int n2 = b.length;
@@ -28,7 +28,7 @@ public class Intersection {
         while (i < n1 && j < n2) {
             if (a[i] < b[j])
                 i++;
-            else if (b[j] > a[i])
+            else if (a[j] > a[i])
                 j++;
             else {
                 ans.add(a[i]);
