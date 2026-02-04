@@ -31,7 +31,9 @@ public class Intersection {
             else if (a[j] > a[i])
                 j++;
             else {
-                ans.add(a[i]);
+                if (ans.isEmpty() || ans.get(ans.size() - 1) != a[i]){
+                    ans.add(a[i]);
+                }
                 i++; j++;
             }
         }
